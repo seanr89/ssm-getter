@@ -5,23 +5,18 @@ import customtkinter as ctk
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("blue")
 
-# Dropdown menu options 
-accounts = [ 
-    "rwrd057",
-    "rwrd058",
-    "rwrd059"
-    ] 
-
 # Create the main window
 app = ctk.CTk()
-app.geometry("1200x800")
-app.title("My Application")
+app.geometry("1100x700")
+app.title("SSM TestBed")
 
 # Add Elements here
 
 # Add a label
 label = ctk.CTkLabel(app, text="SSM Selector!")
 label.pack() 
+
+#region Arrays
 
 accounts = [
     "rwrd057",
@@ -39,39 +34,30 @@ colours = [
     "Blue"
 ]
 
+#endregion
+
+#region EventCallbacks
+
 # Add a combobox and set the initial value + callback event
 def combobox_callback_account(choice):
     print("combobox account dropdown choice:", choice)
-
-def combobox_callback_env(choice):
-    print("combobox env dropdown clicked:", choice)
-
-def combobox_callback_colour(choice):
-    print("combobox colour dropdown clicked:", choice)
-
-comboboxacc = ctk.CTkComboBox(master=app,
-                                     values=accounts,
-                                     command=combobox_callback_account)
-comboboxacc.pack(padx=20, pady=10)
-#comboboxacc.set("option 2")  # set initial value
-
-# comboboxenv = customtkinter.CTkComboBox(master=app,
-#                                      values=["option 1", "option 2"],
-#                                      command=combobox_callback_env)
-# comboboxenv.pack(padx=20, pady=10)
-#comboboxenv.set("option 2")  # set initial value
-
-# comboboxcolour = customtkinter.CTkComboBox(master=app,
-#                                      values=["option 1", "option 2"],
-#                                      command=combobox_callback_colour)
-# comboboxcolour.pack(padx=20, pady=10)
-#comboboxcolour.set("option 2")  # set initial value
 
 def button_event():
     print("button pressed")
 
 def button__close_event():
-    ctk.destroy()
+    app.destroy()
+
+
+#endregion
+
+sideFrame = ctk.CTkFrame()
+
+comboboxacc = ctk.CTkComboBox(master=app,
+                                     values=accounts,
+                                     command=combobox_callback_account)
+comboboxacc.pack(padx=20, pady=10)
+
 
 # Function to handle button press event 
 def on_button_press(name):
