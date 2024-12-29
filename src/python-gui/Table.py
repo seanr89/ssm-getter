@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 from tkinter import simpledialog
+from models import SSMParam
 
 # Define the Object class
 class MyObject:
@@ -27,6 +28,12 @@ def on_button_press(obj):
     if user_input is not None:
         print(f"Action performed for {obj.name} with input: {user_input}")
 
+def update_ssm_param(obj):
+    print(f"Updating SSM Param: {obj.key}")
+
+def refresh_array_param(obj):
+    print(f"Refreshing Array Param: {obj.key}")
+
 # Create a frame for the table
 table_frame = ctk.CTkFrame(root)
 table_frame.pack(pady=20, padx=20)
@@ -47,7 +54,7 @@ for row, obj in enumerate(objects, start=1):
         data_label.grid(row=row, column=col, padx=5, pady=5)
     
     # Add a button in the last column
-    action_button = ctk.CTkButton(table_frame, text="Action", command=lambda obj=obj: on_button_press(obj))
+    action_button = ctk.CTkButton(table_frame, text="Edit", command=lambda obj=obj: on_button_press(obj))
     action_button.grid(row=row, column=len(headers)-1, padx=5, pady=5)
 
 # Run the application
