@@ -6,7 +6,7 @@ from tkinter import simpledialog
 # Initialize the main window
 root = ctk.CTk()
 root.title("CustomTkinter Side-by-Side Frames Example")
-root.geometry("420x300")
+root.geometry("620x300")
 root.resizable(False, False)
 
 #region Arrays
@@ -58,7 +58,7 @@ def on_button_press_dialog():
 left_frame = ctk.CTkFrame(root, width=150, height=290, fg_color="lightblue")
 left_frame.grid(row=0, column=0, padx=5, pady=5)
 
-right_frame = ctk.CTkFrame(root, width=220, height=290, fg_color="lightgray")
+right_frame = ctk.CTkFrame(root, width=420, height=290, fg_color="lightgray")
 right_frame.grid(row=0, column=1, padx=5, pady=5)
 
 comboboxacc = ctk.CTkComboBox(master=left_frame,
